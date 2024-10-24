@@ -1,21 +1,9 @@
 version: 3
 
-automerge: true
+automerge: true  # Habilita merge automático após o apply
 projects:
   - name: main
     dir: .
     autoplan:
       enabled: true
       when_modified: ["*.tf", "*.tfvars"]
-    workflow: terraform-workflow
-
-workflows:
-  terraform-workflow:
-    plan:
-      steps:
-        - init
-        - plan
-    apply:
-      steps:
-        - apply
-
