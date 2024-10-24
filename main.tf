@@ -3,9 +3,3 @@ resource "null_resource" "example" {
     command = "echo 'Hello, Terraform!'"
   }
 }
-
-resource "null_resource" "path" {
-  provisioner "local-exec" {
-    command = "pwd"
-  }
-}
