@@ -4,8 +4,8 @@ resource "null_resource" "example" {
   }
 }
 
-resource "null_resource" "path" {
-  provisioner "local-exec" {
-    command = "pwd"
-  }
-}
+# resource "null_resource" "path" {
+#   provisioner "local-exec" {
+#     command = "pwd"
+#   }
+# }
