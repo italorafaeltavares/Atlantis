@@ -8,10 +8,13 @@ projects:
     autoplan:
       enabled: true
       when_modified: ["*.hcl", "*.tf", "*.tfvars"]
-    workflow: my-workflow
+    workflow: terragrunt-workflow
 
 workflows:
-  my-workflow:
+  terragrunt-workflow:
+    plan:
+      steps:
+        - run: terragrunt plan --terragrunt-working-dir=.
     apply:
       steps:
-        - run: terragrunt apply
+        - run: terragrunt apply --terragrunt-working-dir=.
