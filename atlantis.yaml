@@ -10,5 +10,4 @@ projects:
       when_modified: ["*.hcl", "*.tf", "*.tfvars"]
     workflow:
       apply:
-        steps:
-          - run: terragrunt apply
+        - run: terragrunt apply
