@@ -17,4 +17,5 @@ workflows:
         - run: terragrunt plan --terragrunt-working-dir=.
     apply:
       steps:
-        - run: terragrunt apply --terragrunt-working-dir=.
+        - run: terragrunt apply --terragrunt-working-dir=. --auto-approve
+
