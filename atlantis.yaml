@@ -1,9 +1,0 @@
-version: 3
-
-automerge: true  # Habilita merge automático após o apply
-projects:
-  - name: main
-    dir: .
-    autoplan:
-      enabled: true
-      when_modified: ["*.tf", "*.tfvars"]
