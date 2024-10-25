@@ -1,0 +1,15 @@
+version: 3
+
+automerge: true
+
+projects:
+  - name: main
+    dir: .
+    terragrunt: true  # Habilita o Terragrunt
+    autoplan:
+      enabled: true
+      when_modified: ["*.hcl", "*.tf", "*.tfvars"]
+    workflow:
+      apply:
+        steps:
+          - run: terragrunt apply
