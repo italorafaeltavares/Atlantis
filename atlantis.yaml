@@ -30,4 +30,5 @@ workflows:
             name: TF_IN_AUTOMATION
             value: 'true'
         - run:
-            command: terragrunt apply --terragrunt-working-dir=. planfile.tfplan --auto-approve
+            command: terragrunt apply --terragrunt-working-dir=. --auto-approve planfile.tfplan
+
