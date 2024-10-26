@@ -1,8 +1,3 @@
-# envs/prod/terragrunt.hcl
-include {
-  path = find_in_parent_folders()
-}
-
 terraform {
   source = "git::https://github.com/italorafaeltavares/Terraform.git//module/null_resource?ref=main"
 }
