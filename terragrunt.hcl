@@ -3,6 +3,6 @@ terraform {
 }
 
 inputs = {
-  message           = "Hello from Terragrunt! OKAY"
+  message           = "Hello from Terragrunt! OK"
   working_directory = "/tmp"
 }
