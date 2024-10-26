@@ -9,7 +9,8 @@ workflows:
             name: TF_IN_AUTOMATION
             value: 'true'
         - run:
-            command: terragrunt plan --terragrunt-working-dir=. 
+            command: terragrunt plan --terragrunt-working-dir=. -input=false -out=planfile.tfplan
+            output: strip_refreshing
     apply:
       steps:
         - env:
@@ -19,4 +20,4 @@ workflows:
             name: TF_IN_AUTOMATION
             value: 'true'
         - run:
-            command: terragrunt apply --terragrunt-working-dir=. --auto-approve
+            command: terragrunt apply --terragrunt-working-dir=. planfile.tfplan --auto-approve
