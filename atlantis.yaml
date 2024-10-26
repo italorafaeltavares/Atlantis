@@ -14,8 +14,24 @@ workflows:
   terragrunt-workflow:
     plan:
       steps:
-        - run: terragrunt plan --terragrunt-working-dir=.
+        - env:
+            name: TERRAGRUNT_TFPATH
+            command: 'echo "terraform${ATLANTIS_TERRAFORM_VERSION}"'
+        - env:
+            # Reduz a saída de sugestões do Terraform
+            name: TF_IN_AUTOMATION
+            value: 'true'
+        - run:
+            command: terragrunt plan --terragrunt-working-dir=. -input=false -out=$PLANFILE
+            output: strip_refreshing
     apply:
       steps:
-        - run: terragrunt apply --terragrunt-working-dir=. --auto-approve
-
+        - env:
+            name: TERRAGRUNT_TFPATH
+            command: 'echo "terraform${ATLANTIS_TERRAFORM_VERSION}"'
+        - env:
+            # Reduz a saída de sugestões do Terraform
+            name: TF_IN_AUTOMATION
+            value: 'true'
+        - run:
+            command: terragrunt apply --terragrunt-working-dir=. $PLANFILE --auto-approve
