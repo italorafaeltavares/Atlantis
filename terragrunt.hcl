@@ -1,8 +1,13 @@
+# envs/prod/terragrunt.hcl
+include {
+  path = find_in_parent_folders()
+}
+
 terraform {
-  source = "git::https://github.com/italorafaeltavares/Atlantis.git//module"
+  source = "git::https://github.com/italorafaeltavares/Terraform.git//module/null_resource?ref=main"
 }
 
 inputs = {
-  message           = "Hello from Terragrunt! OK"
+  message           = "Hello from Terragrunt!"
   working_directory = "/tmp"
 }
