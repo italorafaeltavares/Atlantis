@@ -3,6 +3,6 @@ terraform {
 }
 
 inputs = {
-  message           = "Hello from Terragrunt!"
+  message           = "Hello, I'm using Terragurna with Atlantis"
   working_directory = "/tmp"
 }
