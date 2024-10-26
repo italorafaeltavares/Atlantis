@@ -1,5 +1,5 @@
 terraform {
-  source = "./module//"
+  source = "git::https://github.com/italorafaeltavares/Atlantis.git//module"
 }
 
 inputs = {
